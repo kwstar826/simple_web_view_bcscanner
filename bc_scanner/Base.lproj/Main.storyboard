@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qOW-1U-O1j">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ohu-zF-3pY">
+            <objects>
+                <navigationController id="qOW-1U-O1j" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QgJ-DN-Qlc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O4m-y6-Jpp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pd3-P7-hwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="397"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +33,45 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-O2-qw4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OUZ-O2-qw4" secondAttribute="bottom" id="8mt-yg-aSa"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AmI-rc-bJM"/>
+                            <constraint firstAttribute="trailing" secondItem="OUZ-O2-qw4" secondAttribute="trailing" id="EY2-0i-e0z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OUZ-O2-qw4" secondAttribute="trailing" constant="-20" id="ZlP-Z1-cVk"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hrx-3f-iSb"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="i5p-Rp-0Ia"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lIC-mR-X8Q"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="nLE-z9-cOP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AmI-rc-bJM"/>
+                                <exclude reference="ZlP-Z1-cVk"/>
+                                <exclude reference="i5p-Rp-0Ia"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="J4s-WF-8Sn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="fKm-D3-Y9D">
+                            <connections>
+                                <action selector="reloadPressed:" destination="BYZ-38-t0r" id="wm7-ZV-bXj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="OUZ-O2-qw4" id="Kei-EC-mOG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="448" y="397"/>
         </scene>
     </scenes>
 </document>
