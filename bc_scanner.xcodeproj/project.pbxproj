@@ -273,13 +273,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: HeMin Wang (SKV63Z99FA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HeMin Wang (SKV63Z99FA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Antoon Hieronymus (GLB6Q6744A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Antoon Hieronymus (GLB6Q6744A)";
 				INFOPLIST_FILE = bc_scanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bcscanner.bc-scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e82df04-8461-4c2e-851b-d406a3303e2c";
+				PROVISIONING_PROFILE = "10cf37fc-2cba-4d7c-9fce-5f11c2fc8b1a";
 			};
 			name = Debug;
 		};
@@ -287,13 +287,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: HeMin Wang (SKV63Z99FA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HeMin Wang (SKV63Z99FA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Antoon Hieronymus (GLB6Q6744A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Antoon Hieronymus (GLB6Q6744A)";
 				INFOPLIST_FILE = bc_scanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bcscanner.bc-scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e82df04-8461-4c2e-851b-d406a3303e2c";
+				PROVISIONING_PROFILE = "10cf37fc-2cba-4d7c-9fce-5f11c2fc8b1a";
 			};
 			name = Release;
 		};
