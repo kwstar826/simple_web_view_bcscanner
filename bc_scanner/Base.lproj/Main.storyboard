@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -36,29 +37,33 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-O2-qw4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="36z-Nz-6Dm"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OUZ-O2-qw4" secondAttribute="bottom" id="8mt-yg-aSa"/>
-                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AmI-rc-bJM"/>
-                            <constraint firstAttribute="trailing" secondItem="OUZ-O2-qw4" secondAttribute="trailing" id="EY2-0i-e0z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OUZ-O2-qw4" secondAttribute="trailing" constant="-20" id="ZlP-Z1-cVk"/>
-                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hrx-3f-iSb"/>
-                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="i5p-Rp-0Ia"/>
-                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lIC-mR-X8Q"/>
-                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="nLE-z9-cOP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OUZ-O2-qw4" secondAttribute="bottom" id="4zN-JT-VGo"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WCk-dV-29i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OUZ-O2-qw4" secondAttribute="trailing" constant="-20" id="doV-YK-f5Z"/>
+                            <constraint firstItem="OUZ-O2-qw4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="rCM-af-quy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="AmI-rc-bJM"/>
-                                <exclude reference="ZlP-Z1-cVk"/>
-                                <exclude reference="i5p-Rp-0Ia"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="J4s-WF-8Sn">
+                        <leftBarButtonItems>
+                            <barButtonItem title="&lt;" id="fTe-tI-eTy">
+                                <connections>
+                                    <action selector="goBack" destination="OUZ-O2-qw4" id="OgO-5w-TiK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="&gt;" id="rrW-lF-H4A">
+                                <connections>
+                                    <action selector="goForward" destination="OUZ-O2-qw4" id="ZbU-Nr-7Tj"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="fKm-D3-Y9D">
                             <connections>
                                 <action selector="reloadPressed:" destination="BYZ-38-t0r" id="wm7-ZV-bXj"/>

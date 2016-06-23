@@ -18,21 +18,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSString *myURL = @"https://bc-scanner.appspot.com/";
+    self.webView.contentMode = UIViewContentModeScaleAspectFit;
+    NSString *myURL = @"http://bc-scanner.appspot.com/";
     NSURL *url = [NSURL URLWithString:myURL];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    self.webView.scalesPageToFit = YES;
+    self.webView.delegate = self;
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     
 }
 
-- (void)application:(UIApplication *)application
-        didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSDictionary *dictionary = [NSDictionary 
-        dictionaryWithObjectsAndKeys:
-        @"Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5", 
-        @"UserAgent", nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+//        NSString *destination = [request.URL absoluteString];
+//        NSArray *parts = [destination componentsSeparatedByString:@"/"];
+//        NSString *destination1 = [parts objectAtIndex:0];
+//        if ([destination1 rangeOfString:@"pic2shop:"].location == 0) {
+//            //NSString *message = [destination stringByReplacingOccurrencesOfString:@"app_link:" withString:@""];
+//            // do something with the message
+//            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:destination]])
+//            {
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:destination]];
+//            }else{
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"URL error"
+//                                                                message:[NSString stringWithFormat:@"No custom URL defined for %@", destination]
+//                                                               delegate:self cancelButtonTitle:@"OK"
+//                                                      otherButtonTitles:nil];
+//                [alert show];
+//            }
+//        }
+        /*if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:destination]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:destination]];
+        }*/
+    
+    return YES;
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return YES;
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -41,7 +69,7 @@
 #pragma mark - IBAction
 - (IBAction)reloadPressed:(id)sender
 {
-    NSString *myURL = @"https://bc-scanner.appspot.com/";
+    NSString *myURL = @"http://bc-scanner.appspot.com/";
     NSURL *url = [NSURL URLWithString:myURL];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
